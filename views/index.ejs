@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+</head>
+<body>
+  <h1>Blog Posts</h1>
+  <ul>
+    <% for (let post of blogPosts) { %>
+      <li>
+        <h2><%= post.title %></h2>
+        <p><%= post.content %></p>
+        <form action="/delete/<%= post._id %>" method="post">
+          <input type="submit" value="Delete">
+        </form>
+        <form action="/edit/<%= post._id %>" method="get">
+          <input type="submit" value="Edit">
+        </form>
+      </li>
+    <% } %>
+  </ul>
+  <a href="/new">New Post</a>
+</body>
+</html>
